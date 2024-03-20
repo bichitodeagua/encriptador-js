@@ -1,3 +1,14 @@
+function validarTexto(texto) {
+    const advertencia = document.getElementById("advertencia");
+    if (/[^a-z\s]/.test(texto)) { // Busca mayúsculas, caracteres especiales o números
+        advertencia.textContent = "Solo se permiten letras minúsculas sin acentos ni caracteres especiales.";
+        return false;
+    } else {
+        advertencia.textContent = ""; // Limpia la advertencia si el texto es válido
+    }
+    return true;
+}
+
 function encriptar() {
     let texto = document.getElementById("texto").value;
     let tituloMensaje = document.getElementById("titulo-mensaje");
@@ -17,7 +28,7 @@ function encriptar() {
     } else {
       tituloMensaje.textContent = "Ningún mensaje fue encontrado";
       parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-      swal("Ooops!", "Debes ingresar un texto", "warning");
+      swal("Debes ingresar un texto", "warning");
     }
   }
   
